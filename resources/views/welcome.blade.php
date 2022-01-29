@@ -25,14 +25,14 @@
                 <div class="card-body">
                     <p class="card-date">{{ date('d/m/Y', strtotime($event->date)) }}</p>
                     <h5 class="card-title">{{ $event->title }}</h5>
-                    <p class="card-participants">X Participantes</p>
+                    <p class="card-participants">{{ count($event->users) }} Participantes</p>
                     <a href="/events/{{ $event->id }}" class="btn btn-primary">Saber mais</a>
                 </div>
             </div>
         @endforeach
 
         @if(count($events) == 0 && $search)
-            <p>Não foi possível encontrar nnhum evento com {{ $search }}! <a href="/">Ver todos!</a></p>
+            <p>Não foi possível encontrar nenhum evento com {{ $search }}! <a href="/">Ver todos!</a></p>
         @elseif(count($events) == 0)
             <p>Não há Eventos Disponíveis</p>
         @endif
